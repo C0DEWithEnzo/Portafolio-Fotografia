@@ -7,7 +7,7 @@
 
 html {
     scroll-behavior: smooth !important;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 0;
 }
 
 body {
@@ -121,7 +121,8 @@ body {
    HERO
    ======================== */
 .hero-section {
-    height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -129,6 +130,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
+    scroll-margin-top: 0;
 }
 
 .video-background {
@@ -171,12 +173,13 @@ body {
    ======================== */
 
    .sobre-mi {
-    padding: 100px 5%;
+    padding: 110px 5% 80px;
     background: linear-gradient(160deg, #fdfbf7 0%, #f5f0e6 40%, #dce6d5 100%);
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+    scroll-margin-top: 0;
 }
 
 .sobre-mi-container {
@@ -335,7 +338,8 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
     .sobre-mi {
-        padding: 60px 20px;
+        padding: 88px 20px 48px;
+        min-height: 100dvh;
     }
     .sobre-mi-container {
         grid-template-columns: 1fr;
@@ -373,14 +377,42 @@ body {
     }
 }
 
+@media (max-height: 820px) and (min-width: 1101px) {
+    .sobre-mi {
+        padding: 88px 5% 48px;
+    }
+
+    .imagen-wrapper {
+        max-width: 380px;
+    }
+
+    .sobre-mi-contenido h2 {
+        margin-bottom: 22px;
+    }
+
+    .descripcion {
+        margin-bottom: 24px;
+        gap: 12px;
+    }
+
+    .especialidades {
+        padding: 20px;
+    }
+}
+
 /* ========================
    SECCIÓN CONTACTO (GRIS ZINC & BRAND COLORS)
    ======================== */
 .contact {
-    padding: 120px 24px 60px;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 24px 48px;
     background: #1a1a1a; /* GRIS ZINC PROFUNDO */
     color: #ffffff;
     text-align: center;
+    scroll-margin-top: 0;
 }
 
 .contact-container {
@@ -465,7 +497,7 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 80px;
+    margin-bottom: 48px;
 }
 
 .contact-location i {
@@ -479,8 +511,10 @@ body {
     font-size: 0.85rem;
     color: #555555;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    width: 100%;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -500,9 +534,11 @@ body {
    ======================== */
    .portfolio-full {
     width: 100%;
-    min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+    min-height: 100dvh;
+    height: 100dvh;
     background: #2B0703; /* Tu color base de ZenithLab */
     overflow: hidden;
+    scroll-margin-top: 0;
 }
 
 .portfolio-grid-full {
@@ -510,7 +546,7 @@ body {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas */
     grid-template-rows: repeat(2, 1fr);    /* 2 filas */
     width: 100%;
-    height: 100vh; /* Altura total de la sección */
+    height: 100%;
 }
 
 .portfolio-item {
@@ -596,9 +632,14 @@ body {
 
 /* RESPONSIVE (Móvil) */
 @media (max-width: 768px) {
+    .portfolio-full {
+        height: auto;
+        min-height: 100dvh;
+    }
+
     .portfolio-grid-full {
         grid-template-columns: 1fr; /* Una columna por categoría */
-        grid-template-rows: repeat(4, 250px); /* Altura fija para no hacer scroll infinito */
+        grid-template-rows: repeat(4, minmax(250px, 50dvh));
         height: auto;
     }
     
@@ -613,8 +654,9 @@ body {
 
 @media (max-width: 1100px) {
     .sobre-mi {
-        padding: 60px 20px;
-        height: auto; /* IMPORTANTE: En pantallas chicas que el alto sea libre */
+        padding: 88px 20px 48px;
+        height: auto;
+        min-height: 100dvh;
     }
 
     .sobre-mi-container {
