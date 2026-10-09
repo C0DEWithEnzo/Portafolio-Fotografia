@@ -99,12 +99,14 @@
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(58,26,0,0.12);
+  cursor: pointer;
 }
 .cell img {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
   filter: grayscale(8%) sepia(10%);
   transition: filter 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
 }
 .cell:hover img {
   filter: grayscale(0%) sepia(0%);
@@ -126,6 +128,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  align-items: stretch;
 }
 .block-a-bottom > .cell { aspect-ratio: 1/1; }
 .block-a-stack {
@@ -133,6 +136,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 12px;
   aspect-ratio: 1/1;
+  height: 100%;
 }
 .block-a-stack .cell { min-height: 0; }
 
@@ -165,6 +169,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  align-items: stretch;
 }
 .block-d > .cell { aspect-ratio: 1/1; }
 .block-d-stack {
@@ -172,20 +177,29 @@
   grid-template-rows: 1fr 1fr;
   gap: 12px;
   aspect-ratio: 1/1;
+  height: 100%;
 }
 .block-d-stack .cell { min-height: 0; }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER CENTRADO ===== */
 .footer {
   margin-top: 72px;
   padding-top: 24px;
   border-top: 1px solid rgba(58,26,0,0.12);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 10px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   color: #a05520;
 }
+
+/* Oculta elementos extra dentro del footer salvo el span principal */
+.footer > *:not(span) {
+  display: none !important;
+}
+
 .credit strong { color: #c45e1a; }
 
 /* ===== RESPONSIVE ===== */
@@ -201,6 +215,7 @@
     grid-template-rows: unset;
     grid-template-columns: 1fr 1fr;
     aspect-ratio: unset;
+    height: auto;
   }
 
   .cell-wide { aspect-ratio: 16/9; }
@@ -227,11 +242,32 @@
   z-index: 999;
   align-items: center;
   justify-content: center;
-  cursor: zoom-out;
+  cursor: default;
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 .lightbox.active { display: flex; opacity: 1; }
+
+/* Cruz de Cierre arriba a la derecha */
+.lightbox::after {
+  content: "✕";
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  font-size: 28px;
+  font-family: sans-serif;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.lightbox::after:hover {
+  opacity: 1;
+  color: #e8894a;
+  transform: scale(1.1);
+}
+
 .lightbox img {
   max-width: 90vw; max-height: 90vh;
   object-fit: contain; border-radius: 4px;

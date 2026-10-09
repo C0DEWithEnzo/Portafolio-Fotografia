@@ -100,24 +100,46 @@
   color: #2e3c14;
 }
 
+/* ── Grilla ── */
 .grid { display: flex; flex-direction: column; gap: 12px; }
 
-.row1 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* Fila 1: Corrección de alineación para eliminar espacios verticales */
+.row1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
 .row1-left {
-  aspect-ratio: 1/1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
   background: #151a0c;
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(61,82,24,0.18);
+  cursor: pointer;
 }
-.row1-right { display: flex; flex-direction: column; gap: 12px; }
+
+.row1-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
 .row1-right .cell {
   flex: 1;
+  width: 100%;
+  position: relative;
   background: #151a0c;
   border-radius: 6px;
   overflow: hidden;
   min-height: 0;
   border: 1px solid rgba(61,82,24,0.18);
+  cursor: pointer;
 }
 
 .row2 .cell {
@@ -126,6 +148,7 @@
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(61,82,24,0.18);
+  cursor: pointer;
 }
 
 .row3 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -135,6 +158,7 @@
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(61,82,24,0.18);
+  cursor: pointer;
 }
 
 .cell img, .row1-left img {
@@ -142,6 +166,7 @@
   object-fit: cover; display: block;
   filter: grayscale(15%);
   transition: filter 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
 }
 .cell:hover img, .row1-left:hover img {
   filter: grayscale(0%);
@@ -149,11 +174,14 @@
 }
 
 .cell-num {
-  display: flex; align-items: flex-end; justify-content: flex-end;
-  height: 100%; padding: 10px 12px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 12px;
   font-size: 10px; font-weight: 700;
   color: rgba(201,160,0,0.28);
   letter-spacing: 1px;
+  pointer-events: none;
 }
 
 .explore-wrap { margin-top: 60px; text-align: center; }
@@ -172,12 +200,14 @@
 }
 .btn-explore:hover { background: #c9a000; color: #0c100a; }
 
+/* ── Footer Centrado ── */
 .footer {
   margin-top: 72px;
   padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,0.04);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   font-size: 10px; font-weight: 500;
   letter-spacing: 1.5px; text-transform: uppercase;
   color: #252e10;
@@ -200,7 +230,7 @@
   z-index: 999;
   align-items: center;
   justify-content: center;
-  cursor: zoom-out;
+  cursor: default;
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -208,6 +238,27 @@
   display: flex;
   opacity: 1;
 }
+
+/* Cruz de Cierre arriba a la derecha */
+.lightbox::after {
+  content: "✕";
+  position: absolute;
+  top: 28px;
+  right: 36px;
+  font-size: 28px;
+  font-family: sans-serif;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.lightbox::after:hover {
+  opacity: 1;
+  color: #c9a000;
+  transform: scale(1.1);
+}
+
 .lightbox img {
   max-width: 90vw;
   max-height: 90vh;
