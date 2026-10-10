@@ -17,7 +17,7 @@ body {
 }
 
 /* ========================
-   NAVBAR FIXED (VERDE PROFESIONAL)
+   NAVBAR FIXED
    ======================== */
 .header {
     position: fixed;
@@ -34,7 +34,6 @@ body {
     align-items: center;
     gap: 15px;
     padding: 8px 22px;
-    /* Verde Sabio Profundo y elegante */
     background: rgba(153, 201, 119, 0.6);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -50,22 +49,20 @@ body {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Color para Sobre Mí (Terracota Profundo para que resalte sobre el crema) */
 .nav-bar.sobre-mi-active {
     background: rgba(210, 140, 115, 0.6); 
     border-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 10px 30px rgba(166, 93, 67, 0.15);
 }
 
-/* Color para Contacto (Gris Zinc Profundo) */
 .nav-bar.contacto-active {
-    background: rgba(82, 82, 90, 0.6); /* Gris Zinc aclarado */
+    background: rgba(82, 82, 90, 0.6);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-bar.portfolio-active {
-    background: rgba(210, 180, 140, 0.6); /* Marrón canela muy suave */
+    background: rgba(210, 180, 140, 0.6);
     border-color: rgba(142, 86, 46, 0.4);
     box-shadow: 0 10px 30px rgba(62, 39, 35, 0.2);
 }
@@ -121,8 +118,8 @@ body {
    HERO
    ======================== */
 .hero-section {
-    min-height: 100dvh;
-    height: 100dvh;
+    min-height: 100vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -130,7 +127,6 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
-    scroll-margin-top: 0;
 }
 
 .video-background {
@@ -143,6 +139,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: none;
 }
 
 .overlay {
@@ -166,20 +163,19 @@ body {
 
 .hero-content .hero-highlight {
     color: #7DA83E; 
-    font-style: italic;/* Verde clarito para el texto del Hero */
+    font-style: italic;
 }
-/* ========================
-   SOBRE MÍ — RESTRUCTURADO
-   ======================== */
 
-   .sobre-mi {
+/* ========================
+   SOBRE MÍ
+   ======================== */
+.sobre-mi {
     padding: 110px 5% 80px;
     background: linear-gradient(160deg, #fdfbf7 0%, #f5f0e6 40%, #dce6d5 100%);
-    min-height: 100dvh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-margin-top: 0;
 }
 
 .sobre-mi-container {
@@ -189,16 +185,15 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 80px;
-    align-items: start; /* alineado arriba para que respiren mejor */
+    align-items: start;
 }
 
-/* ── IMAGEN ── */
 .sobre-mi-imagen {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     position: sticky;
-    top: 120px; /* se queda fija mientras scrolleas el texto */
+    top: 120px;
 }
 
 .imagen-wrapper {
@@ -225,12 +220,10 @@ body {
     transform: scale(1.05);
 }
 
-/* ── CONTENIDO TEXTO ── */
 .sobre-mi-contenido {
     color: #A65D43;
     display: flex;
     flex-direction: column;
-    gap: 0; /* controlamos el espaciado con margin en cada bloque */
 }
 
 .section-tag {
@@ -248,16 +241,15 @@ body {
     line-height: 1.1;
     color: #1a2412;
     letter-spacing: -1px;
-    margin-bottom: 36px; /* espacio generoso entre título y descripción */
+    margin-bottom: 36px;
 }
 
 .sobre-mi-contenido h2 .highlight {
     color: #d1947e;
 }
 
-/* ── DESCRIPCIÓN ── */
 .descripcion {
-    margin-bottom: 40px; /* respiro claro antes de especialidades */
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -280,7 +272,6 @@ body {
     margin: 0;
 }
 
-/* ── SEPARADOR VISUAL ── */
 .sobre-mi-divider {
     width: 48px;
     height: 2px;
@@ -289,9 +280,7 @@ body {
     margin-bottom: 36px;
 }
 
-/* ── ESPECIALIDADES ── */
 .especialidades {
-    /* bloque propio con padding interno para separarlo visualmente */
     background: rgba(166, 93, 67, 0.06);
     border-radius: 16px;
     padding: 28px;
@@ -335,218 +324,22 @@ body {
     transform: translateY(-2px);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1100px) {
-    .sobre-mi {
-        padding: 88px 20px 48px;
-        min-height: 100dvh;
-    }
-    .sobre-mi-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
-    }
-    .sobre-mi-imagen {
-        position: static;
-        justify-content: center;
-    }
-    .imagen-wrapper {
-        max-width: 360px;
-    }
-    .sobre-mi-contenido {
-        padding-left: 0;
-        max-width: 100%;
-    }
-    .descripcion .intro {
-        border-left: none;
-        padding-left: 0;
-    }
-    .sobre-mi-divider {
-        margin: 0 auto 36px;
-    }
-    .especialidades-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 380px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .especialidades-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-height: 820px) and (min-width: 1101px) {
-    .sobre-mi {
-        padding: 88px 5% 48px;
-    }
-
-    .imagen-wrapper {
-        max-width: 380px;
-    }
-
-    .sobre-mi-contenido h2 {
-        margin-bottom: 22px;
-    }
-
-    .descripcion {
-        margin-bottom: 24px;
-        gap: 12px;
-    }
-
-    .especialidades {
-        padding: 20px;
-    }
-}
-
 /* ========================
-   SECCIÓN CONTACTO (GRIS ZINC & BRAND COLORS)
+   PORTAFOLIO FULLSCREEN (CUADRANTES EXACTOS DE PANTALLA)
    ======================== */
-.contact {
-    min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 110px 24px 48px;
-    background: #1a1a1a; /* GRIS ZINC PROFUNDO */
-    color: #ffffff;
-    text-align: center;
-    scroll-margin-top: 0;
-}
-
-.contact-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.contact-header {
-    margin-bottom: 70px;
-}
-
-.contact-header h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1;
-    color: #ffffff;
-    letter-spacing: -2px;
-    font-weight: 800;
-}
-
-/* El Amarillo/Dorado de tu imagen para el texto */
-.contact-header .highlight {
-    color: #d4a373; 
-    font-style: italic;
-}
-
-.contact-header p {
-    font-size: 1.1rem;
-    color: #888888;
-    max-width: 500px;
-    margin: 20px auto 0;
-}
-
-/* BOTONES CIRCULARES */
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.contact-button-circle {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 2.2rem;
-    color: white; /* Iconos siempre blancos */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* COLORES DE MARCA ESPECÍFICOS */
-.contact-button-circle.whatsapp {
-    background: #25D366; /* Verde Oficial WhatsApp */
-}
-
-.contact-button-circle.instagram {
-    /* Degradado Oficial Instagram */
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-
-.contact-button-circle.email {
-    background: #EA4335; /* Rojo Oficial Gmail/Google */
-}
-
-.contact-button-circle:hover {
-    transform: scale(1.15) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    filter: brightness(1.1); /* Brilla un poco al pasar el mouse */
-}
-
-/* UBICACIÓN */
-.contact-location {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: #888888;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 48px;
-}
-
-.contact-location i {
-    color: #d4a373; /* Icono de mapa en el amarillo de tu imagen */
-}
-
-/* FOOTER */
-.footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 50px;
-    font-size: 0.85rem;
-    color: #555555;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.portfolio-full {
     width: 100%;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.agency-credit strong {
-    color: #d4a373;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .contact-button-circle { width: 65px; height: 65px; font-size: 1.8rem; }
-    .footer { flex-direction: column; text-align: center; }
-}
-
-/* ========================
-   PORTAFOLIO FULLSCREEN (CUADRANTES)
-   ======================== */
-   .portfolio-full {
-    width: 100%;
-    min-height: 100dvh;
-    height: 100dvh;
-    background: #2B0703; /* Tu color base de ZenithLab */
+    height: 100vh;
+    background: #2B0703;
     overflow: hidden;
-    scroll-margin-top: 0;
 }
 
 .portfolio-grid-full {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    grid-template-rows: repeat(2, 1fr);    /* 2 filas */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .portfolio-item {
@@ -558,31 +351,28 @@ body {
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Clave para que la imagen no se estire */
+    object-fit: cover;
     transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Efecto hover en la imagen */
 .portfolio-item:hover img {
     transform: scale(1.1);
 }
 
-/* OVERLAY (Se ve siempre pero se intensifica al hover) */
 .item-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(43, 7, 3, 0.8) 0%, rgba(43, 7, 3, 0.2) 50%, transparent 100%);
     display: flex;
-    align-items: flex-end; /* Texto abajo */
+    align-items: flex-end;
     padding: 40px;
     transition: background 0.4s ease;
 }
 
 .portfolio-item:hover .item-overlay {
-    background: rgba(43, 7, 3, 0.6); /* Se oscurece al hover */
+    background: rgba(43, 7, 3, 0.6);
 }
 
-/* TEXTO DENTRO DEL CUADRANTE */
 .item-text {
     color: #ffffff;
     transform: translateY(20px);
@@ -597,7 +387,7 @@ body {
     font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 4px;
-    color: #D2B48C; /* El color arena claro */
+    color: #D2B48C;
     display: block;
     margin-bottom: 10px;
 }
@@ -609,7 +399,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* BOTÓN QUE APARECE */
 .btn-explore {
     display: inline-block;
     padding: 10px 20px;
@@ -630,70 +419,194 @@ body {
     color: #2B0703;
 }
 
-/* RESPONSIVE (Móvil) */
-@media (max-width: 768px) {
-    .portfolio-full {
-        height: auto;
-        min-height: 100dvh;
-    }
-
-    .portfolio-grid-full {
-        grid-template-columns: 1fr; /* Una columna por categoría */
-        grid-template-rows: repeat(4, minmax(250px, 50dvh));
-        height: auto;
-    }
-    
-    .item-overlay {
-        padding: 20px;
-    }
-    
-    .btn-explore {
-        opacity: 1; /* Siempre visible en móvil */
-    }
+/* ========================
+   SECCIÓN CONTACTO
+   ======================== */
+.contact {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 24px 48px;
+    background: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
 }
 
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    margin-bottom: 70px;
+}
+
+.contact-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.contact-header .highlight {
+    color: #d4a373; 
+    font-style: italic;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: #888888;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-button-circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2.2rem;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.contact-button-circle.whatsapp { background: #25D366; }
+.contact-button-circle.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.contact-button-circle.email { background: #EA4335; }
+
+.contact-button-circle:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    filter: brightness(1.1);
+}
+
+.contact-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #888888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+}
+
+.contact-location i {
+    color: #d4a373;
+}
+
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 50px;
+    font-size: 0.85rem;
+    color: #555555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.agency-credit strong {
+    color: #d4a373;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
 @media (max-width: 1100px) {
     .sobre-mi {
-        padding: 88px 20px 48px;
-        height: auto;
-        min-height: 100dvh;
+        padding: 100px 20px 60px;
+        min-height: 100vh;
     }
 
     .sobre-mi-container {
-        grid-template-columns: 1fr; /* Una sola columna mucho antes */
-        gap: 50px;
+        grid-template-columns: 1fr;
+        gap: 40px;
         text-align: center;
     }
 
     .sobre-mi-imagen {
-        order: 1; /* La foto arriba */
+        position: static;
         justify-content: center;
     }
 
-    .sobre-mi-contenido {
-        order: 2; /* El texto abajo */
-        padding-left: 0;
-        max-width: 100%;
+    .imagen-wrapper {
+        max-width: 360px;
     }
 
-    .imagen-wrapper {
-        max-width: 380px; /* Reducimos un poco la foto en modo "angosto" */
+    .sobre-mi-contenido {
+        max-width: 100%;
     }
 
     .descripcion .intro {
         border-left: none;
         padding-left: 0;
-        font-size: 1.1rem;
     }
 
-    .stats {
-        justify-content: center;
-        flex-wrap: wrap; /* Si no entran los 3 en linea, que bajen */
+    .sobre-mi-divider {
+        margin: 0 auto 36px;
     }
 
     .especialidades-grid {
         margin: 0 auto;
         grid-template-columns: repeat(2, 1fr);
         max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-full {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .portfolio-grid-full {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 50vh);
+        height: auto;
+    }
+
+    .item-overlay {
+        padding: 20px;
+    }
+
+    .btn-explore {
+        opacity: 1;
+    }
+
+    .contact-button-circle {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .especialidades-grid {
+        grid-template-columns: 1fr;
     }
 }

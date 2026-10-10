@@ -1,5 +1,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+body {
+  background: #2e1008; /* Evita que aparezca cualquier franja o línea blanca */
+}
+
 .pg {
   font-family: 'Inter', sans-serif;
   background: #2e1008;
@@ -100,18 +104,17 @@
 /* === GRILLA === */
 .grid { display: flex; flex-direction: column; gap: 12px; }
 
-/* Fila de 2 columnas (Fila 1 y 7) */
 .row1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  align-items: stretch; /* Estira ambas columnas a la misma altura exactamente */
+  align-items: stretch;
 }
 
 .row1-left {
   position: relative;
   width: 100%;
-  height: 100%; /* Adapta la altura total de la columna derecha */
+  height: 100%;
   min-height: 0;
   background: #3e1608;
   border-radius: 6px;
@@ -151,6 +154,7 @@
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid rgba(200,168,130,0.22);
+  cursor: default;
 }
 
 .row3 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -234,10 +238,12 @@
 
 /* Video dentro de celda */
 .cell video {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  cursor: pointer;
+  cursor: default;
+  user-select: none;
 }
 
 /* Bloque video + descripción */
@@ -245,6 +251,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  width: 100%;
 }
 
 /* Descripción debajo del video */
